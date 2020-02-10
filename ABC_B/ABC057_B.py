@@ -10,14 +10,13 @@ for _ in range(m):
     cd = list(map(int, input().split()))
     cdl.append(cd)
 
-print(abl)
-print(cdl)
-ansl = []
+ansl = [0 for _ in range(n)]
 for i, ab in enumerate(abl):
-    ans = 10**8
-    for cd in cdl:
-        ans = min(abs(ab[0]-cd[0]) + abs(ab[1]-cd[1]), ans)
-    ansl.append(ans)
+    ans = 10**10
+    for j, cd in enumerate(cdl):
+        if abs(ab[0]-cd[0]) + abs(ab[1]-cd[1]) < ans:
+            ansl[i] = j
+            ans = abs(ab[0]-cd[0]) + abs(ab[1]-cd[1])
 
 for ans in ansl:
-    print(ans)
+    print(ans+1)
