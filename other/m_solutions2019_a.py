@@ -1,1 +1,2 @@
-print(int(input())*60)
+n = int(input())
+print((n-2)*180)
