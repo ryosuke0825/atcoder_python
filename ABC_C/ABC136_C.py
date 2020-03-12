@@ -1,14 +1,11 @@
 n = int(input())
 H = list(map(int, input().split()))
 
-bh = H[0]
-for i in range(1, len(H)):
-    if H[i] == bh:
+for i in reversed(range(n-1)):
+    if H[i] <= H[i+1]:
         continue
-    elif H[i] > bh:
-        bh = H[i]
-    elif H[i]-1 == bh:
-        continue
+    elif H[i]-1 == H[i+1]:
+        H[i] -= 1
     else:
         break
 else:
