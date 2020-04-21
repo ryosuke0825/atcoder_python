@@ -1,23 +1,12 @@
-abcd = list(map(int, input()))
-a = abcd[0]
-b = abcd[1]
-c = abcd[2]
-d = abcd[3]
+A, B, C, D = list(input())
 
+N = 3
+for i in range(2**N):
+    op123 = ['+', '+', '+']
+    for j in range(N):
+        if((i >> j) & 1):
+            op123[j] = '-'
 
-if a+b+c+d == 7:
-    print(str(a)+'+'+str(b)+'+'+str(c)+'+'+str(d)+'=7')
-elif a+b+c-d == 7:
-    print(str(a)+'+'+str(b)+'+'+str(c)+'-'+str(d)+'=7')
-elif a-b+c+d == 7:
-    print(str(a)+'-'+str(b)+'+'+str(c)+'+'+str(d)+'=7')
-elif a+b-c+d == 7:
-    print(str(a)+'+'+str(b)+'-'+str(c)+'+'+str(d)+'=7')
-elif a-b+c-d == 7:
-    print(str(a)+'-'+str(b)+'+'+str(c)+'-'+str(d)+'=7')
-elif a+b-c-d == 7:
-    print(str(a)+'+'+str(b)+'-'+str(c)+'-'+str(d)+'=7')
-elif a-b-c+d == 7:
-    print(str(a)+'-'+str(b)+'-'+str(c)+'+'+str(d)+'=7')
-elif a-b-c-d == 7:
-    print(str(a)+'-'+str(b)+'-'+str(c)+'-'+str(d)+'=7')
+    if eval(A+op123[0]+B+op123[1]+C+op123[2]+D) == 7:
+        print((A+op123[0]+B+op123[1]+C+op123[2]+D+'=7'))
+        exit(0)
