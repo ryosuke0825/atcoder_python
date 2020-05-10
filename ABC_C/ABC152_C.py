@@ -1,11 +1,12 @@
-n = int(input())
-p = list(map(int, input().split()))
+import itertools
 
-ret = 1
-min_num = p[0]
-for i in range(1, n):
-    if min_num > p[i]:
-        ret += 1
-        min_num = p[i]
+N = int(input())
+P = list(map(int, input().split()))
 
-print(ret)
+a = list(itertools.accumulate(P, func=min))
+ans = 0
+for i in range(N):
+    if P[i] <= a[i]:
+        ans += 1
+
+print(ans)
