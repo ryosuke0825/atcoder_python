@@ -1,13 +1,19 @@
+import itertools
 import math
+import sys
 
-n = int(input())
-xy = []
-for _ in range(n):
+
+def input():
+    return sys.stdin.readline()[:-1]
+
+
+N = int(input())
+XY = []
+for _ in range(N):
     x, y = map(int, input().split())
-    xy.append([x, y])
+    XY.append([x, y])
 
-ans = 0
-for x1, y1 in xy:
-    for x2, y2 in xy:
-        ans += math.sqrt((x1-x2)**2 + (y1-y2)**2)
-print(ans/n)
+sum_distance = 0
+for x, y in list(itertools.combinations(range(N), 2)):
+    sum_distance += math.sqrt(abs(XY[x][0]-XY[y][0])**2+abs(XY[x][1]-XY[y][1])**2)
+print(sum_distance/(N/2))
