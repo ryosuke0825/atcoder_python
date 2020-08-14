@@ -1,16 +1,6 @@
-s = input()
+S = input()
 
-ans = True
-for i in range(len(s)):
-    if (i+1) % 2 == 0:
-        if not(s[i] in ["L", "U", "D"]):
-            ans = False
-
-    else:
-        if not(s[i] in ["R", "U", "D"]):
-            ans = False
-
-if ans:
-    print("Yes")
+if S[0::2].count('L') == 0 and S[1::2].count('R') == 0:
+    print('Yes')
 else:
-    print("No")
+    print('No')
