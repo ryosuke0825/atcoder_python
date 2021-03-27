@@ -1,6 +1,18 @@
-N = input()
-M = len(N)
+N = list(map(int, input()))
+L = len(N)
 
-for st in range(M):
-    for ed in range(st+1, M-st+1):
-        print(N[st:ed])
+ans = 100
+for i in range(2**L):
+    cnt = 0
+    sm = 0
+    for j in range(L):
+        if ((i >> j) & 1):
+            sm += N[j]
+        else:
+            cnt += 1
+    if sm != 0 and sm % 3 == 0:
+        ans = min(ans, cnt)
+
+if ans == 100:
+    ans = -1
+print(ans)
